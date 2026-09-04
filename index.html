@@ -1,206 +1,448 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Robson Ferreira | Platform Engineer</title>
-    <style>
-        
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: #0d1117;
-            color: #e6edf3;
-            line-height: 1.6;
-        }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Robson Ferreira — Engenheiro DevOps / SRE</title>
+<meta name="description" content="Engenheiro DevOps/SRE com quase 30 anos de tecnologia. Infraestrutura como código, CI/CD e observabilidade em AWS, Kubernetes e Linux.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙️</text></svg>">
+<style>
+  :root {
+    --bg: #0b0f17;
+    --bg-soft: #111725;
+    --bg-card: #131a2a;
+    --border: #1f2937;
+    --border-soft: #1a2334;
+    --text: #e6edf7;
+    --text-dim: #93a1b8;
+    --text-faint: #64748b;
+    --accent: #4f9cf9;
+    --accent-soft: rgba(79, 156, 249, 0.12);
+    --green: #3ddc97;
+    --amber: #f5b451;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
+    --maxw: 1080px;
+  }
 
-        header {
-            text-align: center;
-            padding: 50px 20px;
-            background: #161b22;
-            border-bottom: 1px solid #30363d;
-        }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --bg: #ffffff;
+      --bg-soft: #f6f8fb;
+      --bg-card: #ffffff;
+      --border: #e2e8f0;
+      --border-soft: #eef2f7;
+      --text: #0f172a;
+      --text-dim: #475569;
+      --text-faint: #94a3b8;
+      --accent: #1d6ee0;
+      --accent-soft: rgba(29, 110, 224, 0.08);
+      --green: #0f9d63;
+      --amber: #b45309;
+    }
+  }
 
-        img.profile {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 3px solid #238636;
-        }
+  * { box-sizing: border-box; }
 
-        h1 {
-            margin-top: 20px;
-            font-size: 2rem;
-        }
+  html { scroll-behavior: smooth; }
 
-        h2 {
-            color: #58a6ff;
-            margin-top: 40px;
-        }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
 
-        section {
-            max-width: 900px;
-            margin: auto;
-            padding: 20px;
-        }
-        .profile {
-            width: 150px;  /* Ajuste a largura aqui */
-            height: 150px; /* Ajuste a altura aqui (mantenha igual à largura para um círculo perfeito) */
-            object-fit: cover; /* MÁGICA: Corta a imagem sem achatar */
-            border-radius: 50%; /* Deixa a foto redonda */
-            border: 3px solid #326CE5; /* Opcional: uma borda com a cor do Kubernetes */
-}
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
+  a { color: inherit; text-decoration: none; }
 
-        .card {
-            background: #161b22;
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid #30363d;
-        }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
 
-        a {
-            color: #58a6ff;
-            text-decoration: none;
-        }
+  /* ---------- nav ---------- */
+  nav {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(12px);
+    background: color-mix(in srgb, var(--bg) 82%, transparent);
+    border-bottom: 1px solid var(--border-soft);
+  }
+  .nav-inner {
+    max-width: var(--maxw); margin: 0 auto; padding: 14px 24px;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+  .brand { font-family: var(--mono); font-size: .9rem; letter-spacing: -.01em; color: var(--text); }
+  .brand span { color: var(--accent); }
+  .nav-links { display: flex; gap: 22px; font-size: .9rem; color: var(--text-dim); }
+  .nav-links a:hover { color: var(--text); }
+  @media (max-width: 640px) { .nav-links { display: none; } }
 
-        footer {
-            text-align: center;
-            padding: 30px;
-            margin-top: 40px;
-            color: #8b949e;
-        }
-    .tech-card {
-    text-align: center;
-    padding-top: 25px;
-}
+  /* ---------- hero ---------- */
+  header.hero { padding: 88px 0 64px; position: relative; overflow: hidden; }
+  header.hero::before {
+    content: ""; position: absolute; inset: -40% 30% auto -10%; height: 480px;
+    background: radial-gradient(closest-side, var(--accent-soft), transparent 70%);
+    pointer-events: none;
+  }
+  .eyebrow {
+    font-family: var(--mono); font-size: .8rem; color: var(--accent);
+    letter-spacing: .06em; text-transform: uppercase; margin-bottom: 18px;
+  }
+  h1 {
+    font-size: clamp(2.1rem, 5.2vw, 3.6rem);
+    line-height: 1.08; letter-spacing: -.03em; margin: 0 0 20px; font-weight: 700;
+  }
+  .lede {
+    font-size: clamp(1.05rem, 2vw, 1.2rem); color: var(--text-dim);
+    max-width: 62ch; margin: 0 0 36px;
+  }
+  .lede strong { color: var(--text); font-weight: 600; }
 
-.icon-container img {
-    width: 60px;   /* Mesma largura do SVG original */
-    height: 60px;  /* Mesma altura do SVG original */
-    object-fit: contain; /* Garante que a imagem não fique esticada */
-}
-    </style>
+  .stats { display: flex; flex-wrap: wrap; gap: 40px; margin-bottom: 38px; }
+  .stat-n { font-size: 1.9rem; font-weight: 700; letter-spacing: -.02em; line-height: 1.1; }
+  .stat-l { font-size: .82rem; color: var(--text-faint); margin-top: 2px; }
+
+  .cta { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 11px 20px; border-radius: 10px; font-size: .93rem; font-weight: 500;
+    border: 1px solid var(--border); color: var(--text-dim);
+    transition: border-color .18s, color .18s, transform .18s, background .18s;
+  }
+  .btn:hover { color: var(--text); border-color: var(--accent); transform: translateY(-1px); }
+  .btn-primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .btn-primary:hover { color: #fff; filter: brightness(1.08); }
+
+  /* ---------- sections ---------- */
+  section { padding: 72px 0; border-top: 1px solid var(--border-soft); }
+  .sec-head { margin-bottom: 40px; }
+  .sec-kicker {
+    font-family: var(--mono); font-size: .78rem; color: var(--accent);
+    letter-spacing: .06em; text-transform: uppercase; margin-bottom: 10px;
+  }
+  h2 { font-size: clamp(1.5rem, 3vw, 2rem); letter-spacing: -.02em; margin: 0 0 12px; font-weight: 650; }
+  .sec-sub { color: var(--text-dim); max-width: 64ch; margin: 0; }
+
+  /* ---------- projects ---------- */
+  .projects { display: grid; gap: 16px; }
+  .card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 14px; padding: 24px 26px;
+    transition: border-color .2s, transform .2s;
+  }
+  .card.live:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .card-top { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 6px; }
+  .card-title { font-size: 1.12rem; font-weight: 650; letter-spacing: -.01em; }
+  .card-title .idx { font-family: var(--mono); color: var(--text-faint); margin-right: 10px; font-weight: 400; font-size: .95rem; }
+  .badge {
+    font-family: var(--mono); font-size: .72rem; padding: 3px 9px; border-radius: 20px;
+    border: 1px solid var(--border); color: var(--text-faint); white-space: nowrap;
+  }
+  .badge.on { color: var(--green); border-color: color-mix(in srgb, var(--green) 40%, transparent); }
+  .badge.soon { color: var(--amber); border-color: color-mix(in srgb, var(--amber) 40%, transparent); }
+  .card-proves { color: var(--text-dim); margin: 0 0 16px; font-size: .95rem; }
+  .chips { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 16px; }
+  .chip {
+    font-family: var(--mono); font-size: .74rem; padding: 3px 9px; border-radius: 6px;
+    background: var(--bg-soft); border: 1px solid var(--border-soft); color: var(--text-dim);
+  }
+  .metrics { display: flex; flex-wrap: wrap; gap: 26px; padding-top: 16px; border-top: 1px solid var(--border-soft); }
+  .metric-n { font-family: var(--mono); font-size: 1.05rem; font-weight: 600; color: var(--text); }
+  .metric-l { font-size: .76rem; color: var(--text-faint); }
+  .card-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; font-size: .9rem; color: var(--accent); font-weight: 500; }
+  .card-link:hover { text-decoration: underline; }
+  .card.soon-card { opacity: .72; }
+
+  /* ---------- stack ---------- */
+  .stack-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; }
+  .stack-col { background: var(--bg-soft); border: 1px solid var(--border-soft); border-radius: 12px; padding: 20px 22px; }
+  .stack-col h3 { font-size: .82rem; font-family: var(--mono); text-transform: uppercase; letter-spacing: .05em; color: var(--accent); margin: 0 0 12px; font-weight: 500; }
+  .stack-col p { margin: 0; color: var(--text-dim); font-size: .92rem; line-height: 1.8; }
+
+  /* ---------- about ---------- */
+  .about { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: start; }
+  @media (max-width: 780px) { .about { grid-template-columns: 1fr; gap: 28px; } }
+  .about p { color: var(--text-dim); margin: 0 0 16px; }
+  .about p strong { color: var(--text); font-weight: 600; }
+  .photo {
+    width: 168px; height: 168px; object-fit: cover; border-radius: 14px;
+    border: 1px solid var(--border); display: block; margin: 0 0 26px 24px;
+    background: var(--bg-soft);
+  }
+  .facts { border-left: 2px solid var(--border); padding-left: 22px; }
+  .fact { margin-bottom: 18px; }
+  .fact-l { font-family: var(--mono); font-size: .74rem; text-transform: uppercase; letter-spacing: .05em; color: var(--text-faint); }
+  .fact-v { color: var(--text); font-size: .95rem; }
+
+  /* ---------- contact ---------- */
+  .contact-box { background: var(--bg-soft); border: 1px solid var(--border); border-radius: 16px; padding: 44px 40px; text-align: center; }
+  .contact-box h2 { margin-bottom: 10px; }
+  .contact-box p { color: var(--text-dim); margin: 0 0 26px; }
+  .contact-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+  footer { padding: 34px 0 46px; border-top: 1px solid var(--border-soft); color: var(--text-faint); font-size: .85rem; }
+  .foot-inner { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; align-items: center; }
+  .foot-inner a:hover { color: var(--text-dim); }
+</style>
 </head>
 <body>
 
-<header>
-    <img src="img/robson.png" 
-         alt="Foto de Robson" 
-         class="profile" 
-         style="width: 150px; height: 150px; object-fit: cover; border-radius: 50%;">
-    <h1>Robson Ferreira</h1>
-    <p><strong>Platform Engineer | DevOps | AWS | Kubernetes | Terraform</strong></p>
-    <p>
-        <a href="https://github.com/robson-platform-engineer">GitHub</a> · 
-        <a href="https://www.linkedin.com/in/devops1-engineer/">LinkedIn</a> · 
-        <a href="mailto:br.robsonferreira@gmail.com">E-mail</a>
+<nav>
+  <div class="nav-inner">
+    <a class="brand" href="#topo">robson<span>-devops</span></a>
+    <div class="nav-links">
+      <a href="#portfolio">Portfólio</a>
+      <a href="#stack">Stack</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="topo">
+  <div class="wrap">
+    <div class="eyebrow">Engenheiro DevOps / SRE · São Paulo, Brasil</div>
+    <h1>Infraestrutura que sobe sozinha,<br>documentada por quem ensina.</h1>
+    <p class="lede">
+      Quase <strong>30 anos de tecnologia</strong>, <strong>13 deles ensinando Linux</strong> para
+      certificação LPIC. Trabalho com Kubernetes, CI/CD e observabilidade em ambientes de produção —
+      e documento cada decisão de arquitetura, cada trade-off e cada número que ela move.
     </p>
+
+    <div class="stats">
+      <div>
+        <div class="stat-n">~30</div>
+        <div class="stat-l">anos em tecnologia</div>
+      </div>
+      <div>
+        <div class="stat-n">13</div>
+        <div class="stat-l">anos ensinando Linux (LPIC)</div>
+      </div>
+      <div>
+        <div class="stat-n">5</div>
+        <div class="stat-l">projetos na trilha do portfólio</div>
+      </div>
+    </div>
+
+    <div class="cta">
+      <a class="btn btn-primary" href="#portfolio">Ver o portfólio</a>
+      <a class="btn" href="https://github.com/robson-devops" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/devops1-engineer/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
 </header>
 
-<section>
-    <h2>Sobre Mim</h2>
-    <p>
-        Engenheiro DevOps com mais de 6 anos de experiência e atualmente em transição
-        estratégica para a área de <strong>Platform Engineering</strong>, focado em
-        construir plataformas robustas, ambientes automatizados, infraestrutura escalável
-        e ferramentas que impulsionam equipes de desenvolvimento.
-    </p>
-    <p>
-        Tenho paixão por criar soluções eficientes, automatizar tudo o que for possível e garantir que 
-        ambientes críticos funcionem com alta confiabilidade, observabilidade e segurança.
-    </p>
+<section id="portfolio">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-kicker">Portfólio</div>
+      <h2>Uma trilha, cinco degraus</h2>
+      <p class="sec-sub">
+        Cada projeto sobe um nível de complexidade e resolve, de propósito, uma limitação deixada
+        pelo anterior. Todos documentam três coisas: as decisões de arquitetura, os trade-offs
+        avaliados e as melhorias medidas — não estimadas.
+      </p>
+    </div>
+
+    <div class="projects">
+
+      <article class="card live">
+        <div class="card-top">
+          <div class="card-title"><span class="idx">01</span>Deploy automatizado em EC2</div>
+          <span class="badge on">no ar</span>
+        </div>
+        <p class="card-proves">
+          O ciclo completo na camada base: infraestrutura como código, container, pipeline e
+          observabilidade — sem um clique no console e sem nenhuma porta administrativa exposta.
+          O deploy passa pelo Systems Manager, não por SSH.
+        </p>
+        <div class="chips">
+          <span class="chip">Terraform</span><span class="chip">AWS EC2</span><span class="chip">VPC</span>
+          <span class="chip">IAM</span><span class="chip">Docker</span><span class="chip">GitHub Actions</span>
+          <span class="chip">CloudWatch</span><span class="chip">SSM</span><span class="chip">FastAPI</span>
+        </div>
+        <div class="metrics">
+          <div><div class="metric-n">47s</div><div class="metric-l">commit → produção</div></div>
+          <div><div class="metric-n">0</div><div class="metric-l">passos manuais</div></div>
+          <div><div class="metric-n">0</div><div class="metric-l">portas administrativas abertas</div></div>
+          <div><div class="metric-n">100%</div><div class="metric-l">deploys rastreáveis ao commit</div></div>
+        </div>
+        <a class="card-link" href="https://github.com/robson-devops/devops-01-ec2-cicd" target="_blank" rel="noopener">Ver repositório →</a>
+      </article>
+
+      <article class="card soon-card">
+        <div class="card-top">
+          <div class="card-title"><span class="idx">02</span>Microsserviço em ECS Fargate</div>
+          <span class="badge soon">em construção</span>
+        </div>
+        <p class="card-proves">
+          Deploy sem downtime, módulos Terraform reutilizáveis, state remoto com trava e HTTPS
+          via ALB — resolvendo as três limitações declaradas no projeto 01.
+        </p>
+        <div class="chips">
+          <span class="chip">ECS Fargate</span><span class="chip">ECR</span><span class="chip">ALB</span>
+          <span class="chip">Route 53</span><span class="chip">ACM</span><span class="chip">Terraform modules</span>
+        </div>
+      </article>
+
+      <article class="card soon-card">
+        <div class="card-top">
+          <div class="card-title"><span class="idx">03</span>EKS com GitOps e observabilidade</div>
+          <span class="badge soon">em construção</span>
+        </div>
+        <p class="card-proves">
+          Cluster gerenciado provisionado por código, entrega contínua declarativa e stack de
+          métricas com alertas que significam alguma coisa.
+        </p>
+        <div class="chips">
+          <span class="chip">EKS</span><span class="chip">IRSA</span><span class="chip">Helm</span>
+          <span class="chip">ArgoCD</span><span class="chip">Prometheus</span><span class="chip">Grafana</span>
+          <span class="chip">Ansible</span>
+        </div>
+      </article>
+
+      <article class="card soon-card">
+        <div class="card-top">
+          <div class="card-title"><span class="idx">04</span>Arquitetura serverless orientada a eventos</div>
+          <span class="badge soon">em construção</span>
+        </div>
+        <p class="card-proves">
+          Automação de operação e otimização de custo com Lambda, IAM de menor privilégio e uma
+          segunda ferramenta de IaC, para mostrar que a escolha do projeto 01 foi decisão, não hábito.
+        </p>
+        <div class="chips">
+          <span class="chip">Lambda</span><span class="chip">S3</span><span class="chip">EventBridge</span>
+          <span class="chip">CloudFormation</span><span class="chip">Python</span>
+        </div>
+      </article>
+
+      <article class="card soon-card">
+        <div class="card-top">
+          <div class="card-title"><span class="idx">05</span>Plataforma multi-ambiente</div>
+          <span class="badge soon">em construção</span>
+        </div>
+        <p class="card-proves">
+          O projeto guarda-chuva: dev, staging e produção isolados, gates de segurança no pipeline,
+          backup e recuperação automatizados, e custo tratado como requisito de arquitetura.
+        </p>
+        <div class="chips">
+          <span class="chip">Multi-conta</span><span class="chip">RDS Multi-AZ</span>
+          <span class="chip">CodePipeline</span><span class="chip">DevSecOps</span>
+          <span class="chip">DR / backup</span><span class="chip">FinOps</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
 </section>
 
-<section>
-    <h2>Especialidades Técnicas</h2>
-<div class="skills-grid">
-
-    <!-- AWS -->
-    <div class="card tech-card">
-    <div class="icon-container">
-        <img src="img/aws.svg" alt="Ícone da AWS" class="tech-icon">
-    </div>
-        <h3>AWS</h3>
-        <p>EC2, VPC, IAM, S3, EKS, RDS, Route53, CloudWatch</p>
+<section id="stack">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-kicker">Stack</div>
+      <h2>Ferramentas que eu uso, não que eu li sobre</h2>
+      <p class="sec-sub">Tudo abaixo aparece em produção no meu trabalho, no meu homelab ou nos projetos do portfólio.</p>
     </div>
 
-    <!-- Kubernetes -->
-<div class="card tech-card">
-    <div class="icon-container">
-        <img src="img/kubernetes.svg" alt="Ícone do Kubernetes" class="tech-icon">
-    </div>
-    <h3>Kubernetes</h3>
-    <p>RBAC, Namespaces, Ingress, Controllers, Operators, Helm, ArgoCD</p>
-</div>
-
-    <!-- Terraform -->
-    <div class="card tech-card">
-    <div class="icon-container">
-        <img src="img/terraform.svg" alt="Ícone do Terraform" class="tech-icon">
-    </div>
-        <h3>Infrastructure as Code</h3>
-        <p>Terraform, Terragrunt, AWS CDK, GitOps</p>
-    </div>
-
-    <!-- CI/CD -->
-    <div class="card tech-card">
-    <div class="icon-container">
-        <img src="img/cicd.svg" alt="Ícone de CI/CD" class="tech-icon">
-    </div>
+    <div class="stack-grid">
+      <div class="stack-col">
+        <h3>Cloud</h3>
+        <p>AWS · GCP · EC2, ECS, EKS, Lambda, S3, RDS, VPC, IAM, Route 53</p>
+      </div>
+      <div class="stack-col">
+        <h3>Containers e orquestração</h3>
+        <p>Docker · Kubernetes · OpenShift · Helm · ArgoCD</p>
+      </div>
+      <div class="stack-col">
+        <h3>Infraestrutura como código</h3>
+        <p>Terraform · Ansible · CloudFormation</p>
+      </div>
+      <div class="stack-col">
         <h3>CI/CD</h3>
-        <p>GitHub Actions, GitLab CI, Argo Workflows, Tekton</p>
-    </div>
-
-    <!-- Linux -->
-    <div class="card tech-card">
-    <div class="icon-container">
-        <img src="img/linux.svg" alt="Ícone do Linux" class="tech-icon">
-    </div>
-        <h3>Linux & Automação</h3>
-        <p>Bash, Python, Ansible, Systemd, Redes, Containers</p>
-    </div>
-
-    <!-- Observability -->
-    <div class="card tech-card">
-    <div class="icon-container">
-        <img src="img/observability.svg" alt="Ícone de Observabilidade" class="tech-icon">
-    </div>
+        <p>GitHub Actions · GitLab CI/CD · Nexus · Harbor</p>
+      </div>
+      <div class="stack-col">
         <h3>Observabilidade</h3>
-        <p>Prometheus, Grafana, Loki, Tempo, Mimir</p>
+        <p>Prometheus · Grafana · Loki · CloudWatch</p>
+      </div>
+      <div class="stack-col">
+        <h3>Linux e automação</h3>
+        <p>Shell Script · Python · systemd · hardening</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sobre">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-kicker">Sobre</div>
+      <h2>Quem está por trás</h2>
     </div>
 
-</div>
+    <div class="about">
+      <div>
+        <p>
+          Comecei em tecnologia quando servidor ainda era uma máquina que a gente ligava com a mão.
+          De lá para cá, passei por operação, infraestrutura e engenharia — hoje trabalho com
+          <strong>Kubernetes/OpenShift, GitLab CI/CD e observabilidade</strong> em ambientes de
+          produção que atendem serviço público.
+        </p>
+        <p>
+          Em paralelo, passei <strong>13 anos ensinando Linux</strong> para quem buscava certificação
+          LPIC-1 e LPIC-2. Isso mudou a forma como eu trabalho: se eu não consigo explicar por que
+          uma arquitetura é daquele jeito, ela provavelmente não deveria ser daquele jeito.
+        </p>
+        <p>
+          É por isso que cada projeto aqui documenta as decisões, os trade-offs que foram
+          descartados e as limitações que ficaram de fora — a parte que quase nenhum portfólio mostra.
+        </p>
+      </div>
 
+      <div class="side">
+        <img class="photo" src="img/robson.png" alt="Robson Ferreira" width="168" height="168" loading="lazy">
+        <div class="facts">
+        <div class="fact">
+          <div class="fact-l">Localização</div>
+          <div class="fact-v">São Paulo, Brasil · remoto</div>
+        </div>
+        <div class="fact">
+          <div class="fact-l">Foco atual</div>
+          <div class="fact-v">AWS, Terraform e plataformas internas</div>
+        </div>
+        <div class="fact">
+          <div class="fact-l">Formação contínua</div>
+          <div class="fact-v">LPIC-1 · LPIC-2 · homelab Proxmox/Kubernetes</div>
+        </div>
+        <div class="fact">
+          <div class="fact-l">Idiomas</div>
+          <div class="fact-v">Português nativo · inglês técnico</div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section>
-    <h2>Projetos e Laboratórios</h2>
-    <p>Abaixo estão alguns projetos que estou desenvolvendo para praticar Platform Engineering:</p>
-
-    <ul>
-        <li><strong>Cluster Kubernetes Local com K3d:</strong> Infra completa para GitOps, Observability e CI/CD.</li>
-        <li><strong>Pipeline AWS Terraform:</strong> Pipeline GitHub Actions + Terraform + S3 + DynamoDB.</li>
-        <li><strong>Observabilidade com Grafana Stack:</strong> Logs, métricas e traces em ambiente local.</li>
-        <li><strong>Plataforma Dev de Desenvolvedores:</strong> Provisionamento automático de ambientes.</li>
-    </ul>
-
-    <p>Todos os projetos ficarão disponíveis no meu GitHub conforme forem sendo criados.</p>
-</section>
-
-<section>
-    <h2>Contato</h2>
-    <p>📩 <strong>Email:</strong> br.robsonferreira@gmail.com</p>
-    <p>🌐 <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/devops1-engineer/">linkedin.com/in/devops1-engineer</a></p>
+<section id="contato">
+  <div class="wrap">
+    <div class="contact-box">
+      <h2>Vamos conversar</h2>
+      <p>Aberto a oportunidades de DevOps/SRE sênior e a trocar ideia sobre infraestrutura.</p>
+      <div class="contact-cta">
+        <a class="btn btn-primary" href="mailto:br.robsonferreira@gmail.com">Enviar e-mail</a>
+        <a class="btn" href="https://www.linkedin.com/in/devops1-engineer/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://github.com/robson-devops" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </div>
 </section>
 
 <footer>
-    © 2025 Robson Ferreira — Plataforma construída com HTML, CSS puro e hospedada no GitHub Pages.
+  <div class="wrap foot-inner">
+    <div>© 2026 Robson Ferreira</div>
+    <div>Construído com HTML e CSS puro · hospedado no GitHub Pages</div>
+  </div>
 </footer>
 
 </body>
