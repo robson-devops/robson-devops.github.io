@@ -270,19 +270,29 @@
         <a class="card-link" href="https://github.com/robson-devops/devops-01-ec2-cicd" target="_blank" rel="noopener">Ver repositório →</a>
       </article>
 
-      <article class="card soon-card">
+      <article class="card live">
         <div class="card-top">
           <div class="card-title"><span class="idx">02</span>Microsserviço em ECS Fargate</div>
-          <span class="badge soon">em construção</span>
+          <span class="badge on">no ar</span>
         </div>
         <p class="card-proves">
-          Deploy sem downtime, módulos Terraform reutilizáveis, state remoto com trava e HTTPS
-          via ALB — resolvendo as três limitações declaradas no projeto 01.
+          API com PostgreSQL em ECS Fargate atrás de um ALB em duas zonas, com deploy sem downtime
+          e rollback automático. O pipeline publica na AWS via OIDC, sem nenhuma credencial guardada,
+          e a senha do banco nunca passa pelo código nem pelo state. O ciclo completo cria tudo de
+          que precisa e, no destroy, não deixa nenhum recurso na conta.
         </p>
         <div class="chips">
-          <span class="chip">ECS Fargate</span><span class="chip">ECR</span><span class="chip">ALB</span>
-          <span class="chip">Route 53</span><span class="chip">ACM</span><span class="chip">Terraform modules</span>
+          <span class="chip">ECS Fargate</span><span class="chip">RDS PostgreSQL</span><span class="chip">ALB</span>
+          <span class="chip">ECR</span><span class="chip">Terraform modules</span><span class="chip">GitHub Actions</span>
+          <span class="chip">OIDC</span><span class="chip">Secrets Manager</span><span class="chip">CloudWatch</span>
         </div>
+        <div class="metrics">
+          <div><div class="metric-n">734/734</div><div class="metric-l">respostas 200 durante o deploy</div></div>
+          <div><div class="metric-n">0</div><div class="metric-l">credenciais estáticas no pipeline</div></div>
+          <div><div class="metric-n">0</div><div class="metric-l">portas do banco expostas</div></div>
+          <div><div class="metric-n">0</div><div class="metric-l">recursos na conta após o destroy</div></div>
+        </div>
+        <a class="card-link" href="https://github.com/robson-devops/devops-02-ecs-microservice" target="_blank" rel="noopener">Ver repositório →</a>
       </article>
 
       <article class="card soon-card">
@@ -323,12 +333,13 @@
         </div>
         <p class="card-proves">
           O projeto guarda-chuva: dev, staging e produção isolados, gates de segurança no pipeline,
-          backup e recuperação automatizados, e custo tratado como requisito de arquitetura.
+          HTTPS com domínio próprio, backup e recuperação automatizados, e custo tratado como
+          requisito de arquitetura.
         </p>
         <div class="chips">
           <span class="chip">Multi-conta</span><span class="chip">RDS Multi-AZ</span>
           <span class="chip">CodePipeline</span><span class="chip">DevSecOps</span>
-          <span class="chip">DR / backup</span><span class="chip">FinOps</span>
+          <span class="chip">DR / backup</span><span class="chip">HTTPS / ACM</span><span class="chip">FinOps</span>
         </div>
       </article>
 
