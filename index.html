@@ -295,20 +295,30 @@
         <a class="card-link" href="https://github.com/robson-devops/devops-02-ecs-microservice" target="_blank" rel="noopener">Ver repositório →</a>
       </article>
 
-      <article class="card soon-card">
+      <article class="card live">
         <div class="card-top">
           <div class="card-title"><span class="idx">03</span>EKS com GitOps e observabilidade</div>
-          <span class="badge soon">em construção</span>
+          <span class="badge on">no ar</span>
         </div>
         <p class="card-proves">
-          Cluster gerenciado provisionado por código, entrega contínua declarativa e stack de
-          métricas com alertas que significam alguma coisa.
+          API em EKS entregue por GitOps: o pipeline só publica a imagem e grava a nova tag no Git,
+          e o Argo CD aplica no cluster. Autoscaling por CPU, métricas da aplicação no Prometheus,
+          dashboard no Grafana e alerta por e-mail via SNS, com permissões por pod via IRSA e
+          nenhum recurso na conta após o destroy.
         </p>
         <div class="chips">
-          <span class="chip">EKS</span><span class="chip">IRSA</span><span class="chip">Helm</span>
-          <span class="chip">ArgoCD</span><span class="chip">Prometheus</span><span class="chip">Grafana</span>
-          <span class="chip">Ansible</span>
+          <span class="chip">EKS</span><span class="chip">Argo CD</span><span class="chip">Kustomize</span>
+          <span class="chip">Helm</span><span class="chip">IRSA</span><span class="chip">HPA</span>
+          <span class="chip">Prometheus</span><span class="chip">Grafana</span><span class="chip">Alertmanager</span>
+          <span class="chip">Terraform modules</span><span class="chip">GitHub Actions</span><span class="chip">OIDC</span>
         </div>
+        <div class="metrics">
+          <div><div class="metric-n">~2m30s</div><div class="metric-l">do push à nova versão no ar</div></div>
+          <div><div class="metric-n">3s</div><div class="metric-l">para desfazer mudança manual</div></div>
+          <div><div class="metric-n">2→6</div><div class="metric-l">pods sob carga em ~6s</div></div>
+          <div><div class="metric-n">0</div><div class="metric-l">recursos na conta após o destroy</div></div>
+        </div>
+        <a class="card-link" href="https://github.com/robson-devops/devops-03-eks-gitops" target="_blank" rel="noopener">Ver repositório →</a>
       </article>
 
       <article class="card soon-card">

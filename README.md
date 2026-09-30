@@ -17,7 +17,7 @@ avaliados e as melhorias medidas.
 |---|---|---|
 | 01 | [Deploy automatizado em EC2](https://github.com/robson-devops/devops-01-ec2-cicd) | Publicado |
 | 02 | [Microsserviço em ECS Fargate](https://github.com/robson-devops/devops-02-ecs-microservice) | Publicado |
-| 03 | EKS com GitOps e observabilidade | Em construção |
+| 03 | [EKS com GitOps e observabilidade](https://github.com/robson-devops/devops-03-eks-gitops) | Publicado |
 | 04 | Arquitetura serverless orientada a eventos | Em construção |
 | 05 | Plataforma multi-ambiente | Em construção |
 
