@@ -321,19 +321,29 @@
         <a class="card-link" href="https://github.com/robson-devops/devops-03-eks-gitops" target="_blank" rel="noopener">Ver repositório →</a>
       </article>
 
-      <article class="card soon-card">
+      <article class="card live">
         <div class="card-top">
-          <div class="card-title"><span class="idx">04</span>Arquitetura serverless orientada a eventos</div>
-          <span class="badge soon">em construção</span>
+          <div class="card-title"><span class="idx">04</span>FinOps serverless orientado a eventos</div>
+          <span class="badge on">no ar</span>
         </div>
         <p class="card-proves">
-          Automação de operação e otimização de custo com Lambda, IAM de menor privilégio e uma
-          segunda ferramenta de IaC, para mostrar que a escolha do projeto 01 foi decisão, não hábito.
+          Lambda, EventBridge e CloudFormation vigiando a conta: varredura diária de recursos que
+          cobram sem uso, aviso de instâncias sem tags de custo e liga/desliga por horário. O pipeline
+          só pede o change set, e quem cria os recursos é o CloudFormation, com IAM de menor privilégio.
         </p>
         <div class="chips">
-          <span class="chip">Lambda</span><span class="chip">S3</span><span class="chip">EventBridge</span>
-          <span class="chip">CloudFormation</span><span class="chip">Python</span>
+          <span class="chip">Lambda</span><span class="chip">EventBridge</span><span class="chip">Scheduler</span>
+          <span class="chip">CloudFormation</span><span class="chip">SNS</span><span class="chip">SQS DLQ</span>
+          <span class="chip">CloudWatch</span><span class="chip">GitHub Actions</span><span class="chip">OIDC</span>
+          <span class="chip">Python</span>
         </div>
+        <div class="metrics">
+          <div><div class="metric-n">4/4</div><div class="metric-l">desperdícios de teste encontrados</div></div>
+          <div><div class="metric-n">39s</div><div class="metric-l">do erro ao alarme por e-mail</div></div>
+          <div><div class="metric-n">1m59s</div><div class="metric-l">do push à função atualizada</div></div>
+          <div><div class="metric-n">0</div><div class="metric-l">recursos na conta após o destroy</div></div>
+        </div>
+        <a class="card-link" href="https://github.com/robson-devops/devops-04-serverless-finops" target="_blank" rel="noopener">Ver repositório →</a>
       </article>
 
       <article class="card soon-card">
